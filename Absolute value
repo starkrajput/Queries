@@ -1,0 +1,43 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	int t;
+	cin>>t;
+	
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    
+	    string s;
+	    
+	    cin>>s;
+	    
+	    for(int i=0; i<n-1; i += 2)
+	    {
+	        int temp = s[i];
+	        s[i] = s[i+1];
+	        s[i+1] = temp;
+	    }
+	    
+	    for(int i=0; i<n; i++)
+	    {
+	        if(abs('a' - s[i]) <= abs('z' - s[i]))
+	        {
+	            s[i] = 'z' - abs('a' - s[i]);
+	        }
+	        else if(abs('a' - s[i]) > abs('z' - s[i]))
+	        {
+	            s[i] = 'a' + abs('z' - s[i]);
+	        }
+	    }
+	    
+	    cout<<s<<"\n";
+	}
+	
+	return 0;
+}
